@@ -1,0 +1,1 @@
+gcc -shared -o demo.dll demo.c
