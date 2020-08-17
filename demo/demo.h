@@ -8,5 +8,6 @@
 #endif
 
 DLLIMPORT int add(int i,int j);
+DLLIMPORT char *version();
 
 #endif
