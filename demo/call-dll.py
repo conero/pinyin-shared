@@ -21,10 +21,14 @@ print(string_at(version))
 
 
 
-
+# @todo 报错: OSError: exception: access violation writing 0x000000006C184014
 # char
 vchar = bytes("Ohh, opps.!", "utf8")
-test = dll.test(vchar)
+# test = dll.test(vchar)
+# test = dll.test(c_char_p(b"Ohh, opps.!"))
+test = dll.test()
+# test = dll.test(c_char_p(vchar))
+# test = dll.test(b"Ohh, opps.!")
 print(test)
 print(type(test))
 

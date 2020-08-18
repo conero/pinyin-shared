@@ -16,11 +16,9 @@ DLLIMPORT char *version(){
 }
 
 // 返回字符串
-DLLIMPORT char *test(const char *name){
-    char *author;
-    author = strcat(AUTHOR, " -> ");
-    char *ss = strcat(author, name);
-    return ss; 
+DLLIMPORT char *test(char *name){
+    char *author = strcat(AUTHOR, " -> ");
+    return strcat(author, name);
 }
 
 BOOL WINAPI DllMain(HINSTANCE hinstDLL,DWORD fdwReason,LPVOID lpvReserved)
