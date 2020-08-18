@@ -4,6 +4,12 @@
 #ifndef _PINYIN_H_
 #define _PINYIN_H_
 
+#if BUILDING_DLL
+#define DLLIMPORT __declspec(dllexport)
+#else
+#define DLLIMPORT __declspec(dllimport)
+#endif
+
 // 拼音结结构体
 struct PINYIN 
 {
@@ -14,16 +20,12 @@ struct PINYIN
     char *UTF_WORD;              //汉字
 };
 
-
-
-
-#if BUILDING_DLL
-#define DLLIMPORT __declspec(dllexport)
-#else
-#define DLLIMPORT __declspec(dllimport)
-#endif
-
 // 文件导出
 // DLLIMPORT int add(int i,int j);
+
+// 后去文本的拼音
+DLLIMPORT char *pinyin(char *text);
+// 获取版本信息
+DLLIMPORT char *version();
 
 #endif

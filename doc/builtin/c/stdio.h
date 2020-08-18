@@ -104,22 +104,22 @@ int getchar(void);
 // 从标准输入 stdin 获取一个字符（一个无符号字符）。
 
 char *gets(char *str);
-从标准输入 stdin 读取一行，并把它存储在 str 所指向的字符串中。当读取到换行符时，或者到达文件末尾时，它会停止，具体视情况而定。
+// 从标准输入 stdin 读取一行，并把它存储在 str 所指向的字符串中。当读取到换行符时，或者到达文件末尾时，它会停止，具体视情况而定。
 
 int putc(int char, FILE *stream);
-把参数 char 指定的字符（一个无符号字符）写入到指定的流 stream 中，并把位置标识符往前移动。
+// 把参数 char 指定的字符（一个无符号字符）写入到指定的流 stream 中，并把位置标识符往前移动。
 
 int putchar(int char);
-把参数 char 指定的字符（一个无符号字符）写入到标准输出 stdout 中。
+// 把参数 char 指定的字符（一个无符号字符）写入到标准输出 stdout 中。
 
 int puts(const char *str);
-把一个字符串写入到标准输出 stdout，直到空字符，但不包括空字符。换行符会被追加到输出中。
+// 把一个字符串写入到标准输出 stdout，直到空字符，但不包括空字符。换行符会被追加到输出中。
 
 int ungetc(int char, FILE *stream);
-把字符 char（一个无符号字符）推入到指定的流 stream 中，以便它是下一个被读取到的字符。
+// 把字符 char（一个无符号字符）推入到指定的流 stream 中，以便它是下一个被读取到的字符。
 
 void perror(const char *str);
-把一个描述性错误消息输出到标准错误 stderr。首先输出字符串 str，后跟一个冒号，然后是一个空格。
+// 把一个描述性错误消息输出到标准错误 stderr。首先输出字符串 str，后跟一个冒号，然后是一个空格。
 
 int snprintf(char *str, size_t size, const char *format, ...);
-格式字符串到 str 中。
+// 格式字符串到 str 中。

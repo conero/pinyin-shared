@@ -68,9 +68,11 @@ def update_file(raw, tag):
 #include "pinyin.h"
 
 // 结构体内容
-PINYIN PINYIN_DICK[{vlen}] = 
+const struct PINYIN PINYIN_DICK[{vlen}] = 
 {content}
 ;
+
+#endif
     '''
 
     with open(tag, encoding='utf8', mode='w') as wf:

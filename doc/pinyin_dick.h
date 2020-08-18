@@ -9,7 +9,9 @@
 #include "pinyin.h"
 
 // 结构体内容
-PINYIN PINYIN_DICK[50003] = 
+const struct PINYIN PINYIN_DICK[50003] = 
 {
     {"", "", "", "", ""}
 };
+
+#endif

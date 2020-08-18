@@ -10,7 +10,7 @@
 #include "pinyin.h"
 
 // 结构体内容
-PINYIN PINYIN_DICK[41455] = 
+const struct PINYIN PINYIN_DICK[41455] = 
 {
   {"U+3007", "líng,yuán,xīng", "ling,yuan,xing", "ling,yuan,xing4", "〇"},
   {"U+3400", "qiū", "qiu", "qiu4", "㐀"},
@@ -41469,4 +41469,6 @@ PINYIN PINYIN_DICK[41455] =
   {"U+30EDE", "biáng", "biang", "biang4", "𰻞"}
 }
 ;
+
+#endif
     
