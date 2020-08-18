@@ -11,14 +11,14 @@ DLLIMPORT int add(int i, int j)
 
 // 返回字符串
 DLLIMPORT char *version(){
-    char *ver = "v0.0.1";
+    char *ver = "v0.0.1;古丞秋";
     return ver; 
 }
 
 // 返回字符串
-DLLIMPORT char *test(char *name){
+DLLIMPORT char *test(char name){
     char *author = strcat(AUTHOR, " -> ");
-    return strcat(author, name);
+    return strcat(author, &name);
 }
 
 BOOL WINAPI DllMain(HINSTANCE hinstDLL,DWORD fdwReason,LPVOID lpvReserved)

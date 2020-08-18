@@ -12,6 +12,6 @@
 
 DLLIMPORT int add(int i,int j);
 DLLIMPORT char *version();
-DLLIMPORT char *test(char *name);
+DLLIMPORT char *test(char name);
 
 #endif

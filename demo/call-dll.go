@@ -28,7 +28,7 @@ func main() {
 	test := demo.NewProc("test")
 	// demo.add(156, 99)
 	str := "Create From The Golang.(贵阳)"
-	t1, t2, _ := test.Call(uintptr(unsafe.Pointer(&str)))
+	t1, t2, _ := test.Call(uintptr(unsafe.Pointer(str)))
 	// t1, t2, _ := test.Call(uintptr(unsafe.Pointer(syscall.StringBytePtr(str))))
 	fmt.Println("test: ", t1, ",", t2)
 	fmt.Println(UintptrConvString(t1))
