@@ -18,3 +18,14 @@ print(version)
 print(type(version))
 
 print(string_at(version))
+
+
+
+
+# char
+vchar = bytes("Ohh, opps.!", "utf8")
+test = dll.test(vchar)
+print(test)
+print(type(test))
+
+print(string_at(test))

@@ -1,7 +1,7 @@
 /* Replace "dll.h" with the name of your header */
-#include "demo.h"
 #include <windows.h>
 #include <string.h>
+#include "demo.h"
 
 // 整形
 DLLIMPORT int add(int i, int j)
@@ -13,6 +13,14 @@ DLLIMPORT int add(int i, int j)
 DLLIMPORT char *version(){
     char *ver = "v0.0.1";
     return ver; 
+}
+
+// 返回字符串
+DLLIMPORT char *test(const char *name){
+    char *author;
+    author = strcat(AUTHOR, " -> ");
+    char *ss = strcat(author, name);
+    return ss; 
 }
 
 BOOL WINAPI DllMain(HINSTANCE hinstDLL,DWORD fdwReason,LPVOID lpvReserved)

@@ -7,7 +7,11 @@
 #define DLLIMPORT __declspec(dllimport)
 #endif
 
+// 定义变量
+#define AUTHOR   "Joshua Conero"
+
 DLLIMPORT int add(int i,int j);
 DLLIMPORT char *version();
+DLLIMPORT char *test(const char *name);
 
 #endif
