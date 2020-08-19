@@ -21,12 +21,15 @@ void Command::parse_argv(){
     }
     
     // @todo notice: `Segmentation fault`
-    for(int i=0; i<vLen; i++){
+    for(int i=1; i<vLen; i++){
         // char *arg = this->_argv[i];
         // string ss(arg);
         
         // string ss = this->_argv[i];
 
+        char *arg = this->_argv[i];
+        // 错误点: `Segmentation fault`
+        //cout << arg << endl;
 
         //string ss;
         //ss = this->_argv[i];
