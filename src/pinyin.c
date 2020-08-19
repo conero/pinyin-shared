@@ -16,7 +16,8 @@ DLLIMPORT char *pinyin(char *text){
 
 // 获取版本信息
 DLLIMPORT char *version(){
-    char *ss;
+    //@note 地址处理错误: Segmentation fault
+    static char ss[150];
     sprintf(ss, "%s/%s", VERSION, RELEASE);
     return ss;
 }
