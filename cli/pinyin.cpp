@@ -11,9 +11,15 @@ int main(int argc, char *argv[])
 {
     cout << "Hello, world!" << endl;
     cout << version() << endl;
+
+    char test[] = "中华人民共和国";
+    cout << pinyin(test) << endl;
+
     cout << "Hello, world!" << endl;
 
-    Command *cmd = new Command(argv);
+    auto *cmd = new Command(argv);
+    auto *router = new Router(cmd);
+    router->run();
 
     return 0;
 }

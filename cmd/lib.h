@@ -11,7 +11,7 @@ class Command
 {
     public:
         string cc;
-        string subcc;
+        string suBcc;
         Command(char **argv);          //构造函数不等指定返回
         void parse_argv();             //命令行解析
     

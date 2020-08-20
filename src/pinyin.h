@@ -30,9 +30,9 @@ extern "C" {
     // DLLIMPORT int add(int i,int j);
 
     // 后去文本的拼音
-    extern DLLIMPORT char *pinyin(char *text);
+    extern char *pinyin(char *text);
     // 获取版本信息
-    extern DLLIMPORT char *version();
+    extern char *version();
 
 
 #ifdef __cplusplus

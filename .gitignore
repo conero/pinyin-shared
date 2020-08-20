@@ -1,4 +1,11 @@
+# IDE
+.idea
+
+# 编译文件
 *.dll
 *.exe
 *.a
 *.o
+
+#cmake
+cmake-build-debug

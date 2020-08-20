@@ -22,24 +22,16 @@ void Command::parse_argv(){
     
     // @todo notice: `Segmentation fault`
     for(int i=1; i<vLen; i++){
-        // char *arg = this->_argv[i];
-        // string ss(arg);
-        
-        // string ss = this->_argv[i];
-
         char *arg = this->_argv[i];
         // 错误点: `Segmentation fault`
-        //cout << arg << endl;
-
-        //string ss;
-        //ss = this->_argv[i];
+        cout << arg << endl;
 
         // @todo 数据简单的 demo
-        // if (i == 0){
-        //     this->cc = this->_argv[i];
-        // }else if (i == 1){
-        //     this->subcc = this->_argv[i];
-        // }
+         if (i == 0){
+             this->cc = arg;
+         }else if (i == 1){
+             this->suBcc = arg;
+         }
     }
 }
 
@@ -63,9 +55,9 @@ void Router::register_fn(string arg, CMD_CALLBACK_FN callback){
 // 执行命令行
 void Router::run(){
     map<string, CMD_CALLBACK_FN>::iterator iter;
-    map<string, CMD_CALLBACK_FN> vmap = this->_register_fn;
-    iter = vmap.begin();
-    while(iter != vmap.end()) {
+    map<string, CMD_CALLBACK_FN> vMap = this->_register_fn;
+    iter = vMap.begin();
+    while(iter != vMap.end()) {
         cout << iter->first << " : " << endl;
         iter++;
     }
