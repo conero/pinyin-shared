@@ -8,12 +8,12 @@
 
 // 获取拼音值
 // @todo 业务实现
-char *pinyin(char *text){
+char *pinyin(const char *text){
     int vLen = sizeof(PINYIN_DICK);
     for(int i=0; i<vLen; i++){
         //struct PINYIN *py = PINYIN_DICK[i];
         if (PINYIN_DICK[i].UTF_WORD == text){
-            return py.UTF_PY;
+            return PINYIN_DICK[i].UTF_PY;
         }
     }
     return "";

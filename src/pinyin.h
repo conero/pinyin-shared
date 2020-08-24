@@ -30,7 +30,7 @@ extern "C" {
     // DLLIMPORT int add(int i,int j);
 
     // 后去文本的拼音
-    extern char *pinyin(char *text);
+    extern char *pinyin(const char *text);
     // 获取版本信息
     extern char *version();
 
