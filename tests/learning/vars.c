@@ -35,16 +35,30 @@ int main(int argc, char **args){
     //char *psv1;   //输出前必须赋值
     char *psv1 = NULL;
     // `psv1 = "With a long long time ago, thing start happen...";` 直接赋值报错: ISO C++ forbids converting a string constant to 'char*'
-    psv1 = (char *)"With a long long time ago, thing start happen...";
-    printf("char pointer) psv1: %s, &*psv1: %s.\n", psv1, *psv1);
-    psv1 = (char *)"Suck is a fucking thing, ye."; //可修改值
-    printf("char pointer) psv1: %s, &*psv1: %s.\n", psv1, *psv1);
+    psv1 = "With a long long time ago, thing start happen...";
+    printf("char pointer) psv1: %s, &*psv1: %p.\n", psv1, *psv1);
+    psv1 = "Suck is a fucking thing, ye."; //可修改值
+    printf("char pointer) psv1: %s, &*psv1: %p.\n", psv1, *psv1);
 
     //修改值
     *pInt = 100;
     printf("\nint pointer) change pointer value.\n");
     printf("int pointer) pInt: %d, &address: %p.\n", pInt, *pInt);
     printf("int pointer) pInt: %d, ppi: %p.\n", ppi, *pInt );
+
+
+    //字符串判断
+    char *psA = "Joshua", *psB = "Conero";
+    if (strcmp(psA, psB) != 0){
+        printf("%s != %s.\n", psA, psB);
+    }
+    psA = psB;
+    if (strcmp(psA, psB) == 0){
+        printf("%s == %s.\n", psA, psB);
+    }
+    //常量
+    printf("strcmp(%s, BadGuy) = %d.\n", psA, strcmp(psA, "BadGuy"));
+    printf("strcmp(%s, 西南) = %d.\n", psB, strcmp(psB, "西南"));
 
     system("pause");
     return 0;

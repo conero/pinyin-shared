@@ -5,17 +5,17 @@
 #define _PINYIN_H_
 
 // @notice: 2020.08.19 使用 `extern` 指令代替
-#if BUILDING_DLL
-#define DLLIMPORT __declspec(dllexport)
+//__declspec 与 extern 的区别
+#ifdef BUILDING_DLL
+#define EXPORT __declspec(dllexport)
 #else
-#define DLLIMPORT __declspec(dllimport)
+#define EXPORT __declspec(dllimport)
 #endif
 
 // C++ 环境下
 #ifdef __cplusplus
 extern "C" {
 #endif
-
     // 拼音结结构体
     struct PINYIN 
     {

@@ -29,7 +29,7 @@ if(-not (Test-Path -Path $dll )){
     cp .\dist\pinyin.dll pinyin.dll
 }
 
-
+echo ""
 echo "编译 cli 的应用"
 
 # 编译文件

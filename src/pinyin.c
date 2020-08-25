@@ -11,9 +11,14 @@
 char *pinyin(const char *text){
     int vLen = sizeof(PINYIN_DICK);
     for(int i=0; i<vLen; i++){
-        //struct PINYIN *py = PINYIN_DICK[i];
-        if (PINYIN_DICK[i].UTF_WORD == text){
-            return PINYIN_DICK[i].UTF_PY;
+        struct PINYIN py = PINYIN_DICK[i];
+        // NULL 导致，段错误(Segmentation fault)
+        if(py.UTF_WORD == NULL || py.UTF_PY == NULL){
+            continue;
+        }
+        //printf("%s VS %s.\r\n", py.UTF_WORD, text);
+        if (strcmp(py.UTF_WORD, text) == 0){
+            return py.UTF_PY;
         }
     }
     return "";
