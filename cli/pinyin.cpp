@@ -12,8 +12,11 @@ int main(int argc, char *argv[])
     cout << "Hello, world!" << endl;
     cout << version() << endl;
 
-    char test[] = "中";
+    char test[] = "中华人民共和国";
     cout << pinyin(test) << endl;
+
+    char wd[] = "杨";
+    cout << word(wd) << endl;
 
     cout << "Hello, world!" << endl;
 

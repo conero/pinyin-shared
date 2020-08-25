@@ -20,19 +20,21 @@ extern "C" {
     struct PINYIN 
     {
         char *UTF_CODE;              //utf8 编好
-        char *UTF_PY;                //实际的拼音，多音字使用`,`分割
-        char *UTF_PY_ALPHA;          //拼音字母
-        char *UTF_PY_ALPHA_TONE;     //拼音字母带数字音标
-        char *UTF_WORD;              //汉字
+        char *PY;                //实际的拼音，多音字使用`,`分割
+        char *PY_ALPHA;          //拼音字母
+        char *PY_ALPHA_TONE;     //拼音字母带数字音标
+        char *WORD;              //汉字
     };
 
     // 文件导出
     // DLLIMPORT int add(int i,int j);
 
-    // 后去文本的拼音
-    extern char *pinyin(const char *text);
+    // 获取文本的拼音
+    char *pinyin(const char *text);
+    // 获取文字的拼音
+    char *word(const char *text);
     // 获取版本信息
-    extern char *version();
+    char *version();
 
 
 #ifdef __cplusplus

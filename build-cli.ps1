@@ -36,9 +36,9 @@ echo "编译 cli 的应用"
 if($isDebug)
 {
     echo "带调试模式的输出"
-    g++ .\cli\pinyin.cpp -o pinyin ./dist/pinyin.dll .\cmd\command.cc -fexec-charset=gbk -g
+    g++ .\cli\pinyin.cpp -o pinyin ./dist/pinyin.dll .\cmd\command.cc -g
 }else{
-    g++ .\cli\pinyin.cpp -o pinyin ./dist/pinyin.dll .\cmd\command.cc -fexec-charset=gbk
+    g++ .\cli\pinyin.cpp -o pinyin ./dist/pinyin.dll .\cmd\command.cc
 }
 
 
