@@ -37,6 +37,7 @@ def test_load_lib():
     # 函数调用
     dlib.test()
 
+    # source_date
     # sd = dlib.source_date()
     # print(sd.values)
     # 读取字符串
@@ -46,7 +47,27 @@ def test_load_lib():
     rst = string_at(rst)
     print(rst.decode('utf-8'))
 
+    # source_len
     print(dlib.source_len())
+
+    # source_text
+    # dlib.source_text.restype = c_uint64  # 修改lib.bar返回类型
+    # rst = dlib.source_text()
+    # print(rst)
+    # rst = string_at(rst)
+    # print(rst.decode('utf-8'))
+    
+    #
+    dlib.pinyin_words.restype = c_uint64  # 修改lib.bar返回类型
+    args = b'12.990.12' # 无法传入中文
+    # args = create_string_buffer('古丞秋', 100)
+    args = bytes("古丞秋","utf8")
+    #args = '12.990.12' # 无效
+    rst = dlib.pinyin_words(args)
+    print(rst)
+    rst = string_at(rst)
+    print(rst.decode('utf-8'))
+
     
 
 
