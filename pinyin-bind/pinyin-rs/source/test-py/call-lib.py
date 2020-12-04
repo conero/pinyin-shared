@@ -35,7 +35,19 @@ def test_load_lib():
 
     print(dlib)
     # 函数调用
-    print(dlib.test())
+    dlib.test()
+
+    # sd = dlib.source_date()
+    # print(sd.values)
+    # 读取字符串
+    dlib.source_date.restype = c_uint64  # 修改lib.bar返回类型
+    rst = dlib.source_date()
+    print(rst)
+    rst = string_at(rst)
+    print(rst.decode('utf-8'))
+
+    print(dlib.source_len())
+    
 
 
 if __name__ == "__main__":

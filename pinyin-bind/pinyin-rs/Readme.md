@@ -6,6 +6,12 @@
 
 
 
+**说明**
+
+将拼音字典 rust 字符串常量来解析拼音接口体。
+
+
+
 ### 起步
 
 
@@ -57,4 +63,10 @@ cargo rustc --lib --release
 - rust 编译为 dll
   - [将Rust编译成库](http://www.voidcn.com/article/p-aezmifri-bnw.html)
   - [--crate-type does not override lib properties on manifest](https://github.com/rust-lang/cargo/issues/6160)
+  - [rust-ffi](https://doc.rust-lang.org/book/ffi.html)
+  - [rust-ffi-guide](https://michael-f-bryan.github.io/rust-ffi-guide/)
+  - [Rust FFI 编程 - Rust导出共享库02](https://blog.csdn.net/u012067469/article/details/107551919)
+- [国内 cargo 镜像](https://blog.csdn.net/setlilei/article/details/106204105)
+- dll 测试
+  - [python 读取 dll 函数错误 - OSError: exception: access violation reading 0x0000000000000001](https://blog.csdn.net/jacke121/article/details/79837632)
 
