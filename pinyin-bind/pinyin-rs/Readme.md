@@ -47,6 +47,14 @@ path = "src/lib.rs"
 ```shell
 # 编译命令
 cargo rustc --lib --release
+
+# 执行测试
+cargo test
+# 执行测试，且显示打印的内容
+cargo test -- --nocapture
+
+# 生成项目文档
+rustdoc src/lib.rs
 ```
 
 
