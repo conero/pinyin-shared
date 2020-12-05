@@ -2,8 +2,7 @@ use crate::raw_dick;
 
 // 实际的拼音查询逻辑
 //拼音字典数据结构体
-// #[derive(Debug, Copy, Clone)]
-#[derive(Debug, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct PinyinDick {
     pub code: String,       //代码
     pub pinyin: String,     //拼音
@@ -79,7 +78,7 @@ impl Pinyin {
     }
 
     // 句子搜索
-    /*pub fn search_words(&mut self, words: String) -> Option<Vec<PinyinDick>> {
+    pub fn search_words(&mut self, words: String) -> Option<Vec<PinyinDick>> {
         let words_split = words.split("");
         self._parse_text_one();
         let mut py_queue: Vec<PinyinDick> = Vec::new();
@@ -95,5 +94,5 @@ impl Pinyin {
             return Some(py_queue);
         }
         None
-    }*/
+    }
 }
