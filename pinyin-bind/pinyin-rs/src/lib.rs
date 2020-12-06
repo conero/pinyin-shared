@@ -4,6 +4,8 @@ use std::ffi::{CStr, CString};
 
 // #[macro_use]
 extern crate libc;
+#[macro_use]
+extern crate lazy_static;
 
 // 2020.12.04
 // Rust 语言版本 pinyin 生成器
@@ -15,6 +17,15 @@ pub const PROJECT_CODE: &'static str = "pinyin";
 
 pub mod pinyin;
 pub mod raw_dick; // 数据字典 // 拼音处理
+
+lazy_static! {
+    // 静态拼音
+    static ref PY: Pinyin = {
+        let mut m = Pinyin::new();
+        m.parse_text();
+        m
+    };
+}
 
 #[no_mangle]
 extern "C" fn test() {
@@ -40,21 +51,20 @@ extern "C" fn pinyin_words(text: *const libc::c_char) -> *mut libc::c_char {
         assert!(!text.is_null());
         CStr::from_ptr(text).to_string_lossy().into_owned()
     };
-    // @todo 实现全局静态变量，避免多次进行字典生成
-    let mut py = Pinyin::new();
-    let res = py.search_words(c_str);
-    let py_match = match res {
-        Some(queue) => {
-            let mut arr: Vec<String> = Vec::new();
-            for q in queue {
-                arr.push(q.pinyin);
+    let py = &mut *PY;
+    let dicks = py.search_words(c_str);
+    let value = match dicks {
+        Some(dks) => {
+            let mut vs: Vec<String> = Vec::new();
+            for dk in dks {
+                vs.push(dk.pinyin);
             }
-            arr.join(" ")
+            vs.join(", ")
         }
         None => "".to_string(),
     };
     // 构造数据返回
-    let c_str_changed = CString::new(py_match).unwrap();
+    let c_str_changed = CString::new(value).unwrap();
     c_str_changed.into_raw()
 }
 

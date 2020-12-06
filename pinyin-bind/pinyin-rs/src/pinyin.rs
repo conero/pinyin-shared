@@ -17,12 +17,22 @@ pub struct Pinyin {
     _v_dick: Vec<PinyinDick>,
 }
 
+// 拼音
 impl Pinyin {
     // 拼音是实例化
     pub fn new() -> Pinyin {
         let py = Pinyin {
             _v_dick: Vec::new(),
         };
+        py
+    }
+
+    // 拼音静态
+    pub fn new_cache() -> Pinyin {
+        let mut py = Pinyin {
+            _v_dick: Vec::new(),
+        };
+        py.parse_text();
         py
     }
 
