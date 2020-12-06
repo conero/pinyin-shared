@@ -2,7 +2,7 @@ use crate::raw_dick;
 
 // 实际的拼音查询逻辑
 //拼音字典数据结构体
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct PinyinDick {
     pub code: String,       //代码
     pub pinyin: String,     //拼音
@@ -85,7 +85,16 @@ impl Pinyin {
         for word in words_split {
             for py in &self._v_dick {
                 if py.word.contains(&String::from(word)) {
-                    py_queue.push(*py);
+                    // PinyinDick 无法继承 Copy, 因此使用新的构造方法传递值
+                    let c_py = PinyinDick {
+                        code: py.code.clone(),
+                        pinyin: py.pinyin.clone(),
+                        alpha: py.alpha.clone(),
+                        tone_alpha: py.tone_alpha.clone(),
+                        word: py.word.clone(),
+                    };
+                    py_queue.push(c_py);
+                    // py_queue.push(py.clone());
                 }
             }
         }
