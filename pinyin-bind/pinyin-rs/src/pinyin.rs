@@ -84,17 +84,8 @@ impl Pinyin {
         let mut py_queue: Vec<PinyinDick> = Vec::new();
         for word in words_split {
             for py in &self._v_dick {
-                if py.word.contains(&String::from(word)) {
-                    // PinyinDick 无法继承 Copy, 因此使用新的构造方法传递值
-                    let c_py = PinyinDick {
-                        code: py.code.clone(),
-                        pinyin: py.pinyin.clone(),
-                        alpha: py.alpha.clone(),
-                        tone_alpha: py.tone_alpha.clone(),
-                        word: py.word.clone(),
-                    };
-                    py_queue.push(c_py);
-                    // py_queue.push(py.clone());
+                if !word.is_empty() && py.word.contains(&String::from(word)) {
+                    py_queue.push(py.clone());
                 }
             }
         }

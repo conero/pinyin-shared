@@ -1,3 +1,4 @@
+use crate::pinyin::Pinyin;
 use crate::raw_dick as raw;
 use std::ffi::{CStr, CString};
 
@@ -35,14 +36,25 @@ extern "C" fn version() -> *mut libc::c_char {
 // @todo 查询待完成
 #[no_mangle]
 extern "C" fn pinyin_words(text: *const libc::c_char) -> *mut libc::c_char {
-    let mut c_str = unsafe {
+    let c_str = unsafe {
         assert!(!text.is_null());
         CStr::from_ptr(text).to_string_lossy().into_owned()
     };
-
-    c_str.push_str(" -》 文件已接收，C/C++ 乱码");
+    // @todo 实现全局静态变量，避免多次进行字典生成
+    let mut py = Pinyin::new();
+    let res = py.search_words(c_str);
+    let py_match = match res {
+        Some(queue) => {
+            let mut arr: Vec<String> = Vec::new();
+            for q in queue {
+                arr.push(q.pinyin);
+            }
+            arr.join(" ")
+        }
+        None => "".to_string(),
+    };
     // 构造数据返回
-    let c_str_changed = CString::new(c_str).unwrap();
+    let c_str_changed = CString::new(py_match).unwrap();
     c_str_changed.into_raw()
 }
 
