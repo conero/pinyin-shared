@@ -8,7 +8,7 @@
 use crate::Dk;
 
 // 结构体
-pub const PY_DICKS: [Dk; 41497] = [
+pub(crate) static PY_DICKS: &[Dk] = &[
 Dk {u8: "3007", py:"líng,yuán,xīng", al: "ling,yuan,xing", wd: "〇"},
 Dk {u8: "3400", py:"qiū", al: "qiu", wd: "㐀"},
 Dk {u8: "3401", py:"tiàn", al: "tian", wd: "㐁"},
