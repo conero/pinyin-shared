@@ -1,4 +1,4 @@
-use clap::{Parser, Subcommand, Args};
+use clap::{Args, Parser, Subcommand};
 use core::dick::Dick;
 use std::string::String;
 
@@ -23,30 +23,28 @@ struct Cli {
 #[derive(Subcommand)]
 enum Commands {
     // 汉字转拼音工具
-    Pyin(Pyin)
+    Pyin(Pyin),
 }
 
 #[derive(Args)]
-struct Pyin{
+struct Pyin {
     #[clap(value_parser)]
     value: String,
 }
-
 
 fn main() {
     let cli = Cli::parse();
 
     match &cli.command {
         Commands::Pyin(pyin) => {
-            if !pyin.value.is_empty(){
+            if !pyin.value.is_empty() {
                 let dk = Dick::find_by_word(pyin.value.as_str());
-                if !dk.is_none(){
+                if !dk.is_none() {
                     println!("汉字转怕拼音 {:?}", dk.unwrap().py);
-                }else {
+                } else {
                     println!("未找到 {} 拼音 ", pyin.value)
                 }
             }
-
         }
     }
 }

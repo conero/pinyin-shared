@@ -3,7 +3,7 @@ pub fn add(left: usize, right: usize) -> usize {
 }
 
 #[no_mangle]
-pub extern fn demo_name() {
+pub extern "C" fn demo_name() {
     println!("shard demo from pinyin to dll!");
 }
 
