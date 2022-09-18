@@ -52,15 +52,5 @@ cargo test
 
 ### 参考
 
-- [C/C++ 指针相接之基础篇](https://blog.csdn.net/weixin_39951988/article/details/87773322)
-
-- [cmake](https://cmake.org/)
-
-- [Segmentation Fault错误原因总结](https://blog.csdn.net/u010150046/article/details/77775114)
-
-- [gdb 常用命令](https://blog.csdn.net/mercy_ps/article/details/81542986)
-
-- [GCC编译环境中文乱码解决方案](https://www.cnblogs.com/CodeWorkerLiMing/p/12503166.html)
-
-  
+- [rust-pinyin](https://github.com/mozillazg/rust-pinyin)  参照学习该库（前期）
 

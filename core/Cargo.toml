@@ -6,7 +6,13 @@ edition = "2021"
 repository = "https://gitee.com/conero/pinyin-shared"
 description = "基于 rust 编写 汉字拼音相关处理"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
+# 引入文件
+include = [
+    "/build.rs",
+    "../source/dick/pinyin.txt",
+    "/Cargo.toml",
+    "/README.md",
+]
 
 [lib]
 path = "lib.rs"
