@@ -12,3 +12,12 @@ crate-type = ["cdylib"]
 name = "pinyin"
 
 [dependencies]
+
+#
+#[target.x86_64-unknown-linux-musl]
+#linker = "rust-lld"
+#rustflags = ["-C", "linker-flavor=ld.lld"]
+#
+#[target.x86_64-unknown-linux-gnu]
+#linker = "rust-lld"
+#rustflags = ["-C", "linker-flavor=ld.lld"]

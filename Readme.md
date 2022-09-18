@@ -26,6 +26,21 @@ cargo fmt
 
 # 执行测试
 cargo test
+
+# 编译
+cargo build --release
+```
+
+
+
+交叉编译
+
+```shell
+# 查看当前安装和支持的平台
+rustup target list
+
+# 编译时指定对应的目标环境
+cargo build --release --target=x86_64-unknown-linux-musl
 ```
 
 

@@ -8,17 +8,14 @@ const RAW_DATA: &str = include_str!(concat!(
     env!("CARGO_MANIFEST_DIR"),
     "/../source/dick/pinyin.txt"
 ));
-type InputData = Vec<(u32, Vec<&'static str>)>;
-type PinyinDataIndex = HashMap<&'static str, usize>;
 
+type PinyinDataIndex = HashMap<&'static str, usize>;
 fn create_out_file(name: &str) -> io::Result<impl Write> {
     let path = Path::new(&env::var("OUT_DIR").unwrap()).join(name);
     Ok(BufWriter::new(File::create(&path)?))
 }
 
-type ExtractData = Vec<(u32, Vec<&'static str>)>;
-
-fn extract_data() -> ExtractData {
+fn extract_data<'a>() -> Vec<(u32, Vec<&'a str>)> {
     let mut input_data = RAW_DATA
         .lines()
         .enumerate()
@@ -51,23 +48,27 @@ fn extract_data() -> ExtractData {
     input_data
 }
 
-fn generate_pinyin_dick(data: &InputData) -> io::Result<PinyinDataIndex> {
+fn generate_pinyin_dick(data: &Vec<(u32, Vec<&str>)>) -> io::Result<PinyinDataIndex> {
     let mut output = create_out_file("py_dicks.rs")?;
     let pinyin_data = HashMap::new();
     writeln!(output, "&[")?;
-    let mut process_pinyin = |pinyin: &str| {
+    let process_pinyin = |line: &(u32, Vec<&str>)| {
+        let u8 = line.0;
+        let pinyin: &str = &line.1.iter().flat_map(|s| s.chars()).collect::<String>();
+
         write!(output, "    Dk {{ ")?;
 
         let hz_limiter = "#";
         let pos = pinyin.find(hz_limiter);
         let mut py = pinyin;
         let mut wd = "";
-        let u8 = "";
+
         if pos > Some(0) {
             py = &pinyin[..pos.unwrap()].trim();
             wd = &pinyin[pos.unwrap() + 1..].trim()
         }
 
+        // @todo 修复 alpha 错误
         write!(
             output,
             r#"u8:"{}", py:"{}", al:"{}", wd:"{}""#,
@@ -77,9 +78,9 @@ fn generate_pinyin_dick(data: &InputData) -> io::Result<PinyinDataIndex> {
         Ok(())
     };
     // 插入一个空的拼音数据作为零位
-    process_pinyin("")?;
+    //process_pinyin("")?;
     data.iter()
-        .flat_map(|(_, list)| list.iter().map(|s| *s))
+        //.flat_map(|(_, list)| list.iter().map(|s| *s))
         .map(process_pinyin)
         .collect::<io::Result<()>>()?;
     writeln!(output, "]")?;
