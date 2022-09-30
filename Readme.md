@@ -57,6 +57,13 @@ cargo build --release --target=x86_64-unknown-linux-musl
 
 
 
+#### 命令行
+
+```shell
+# 汉字转拼音
+pyin.exe pyin <VALUE>
+```
+
 
 
 

@@ -13,3 +13,8 @@ path = "main.rs"
 [dependencies]
 clap = { version = "3.2.22", features = ["derive"] }
 core = { version = "0.1.0", path = "../core" }
+
+
+[profile.release]
+# 发生不可恢复错误时进行终止操作
+panic = 'abort'

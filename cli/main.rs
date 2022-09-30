@@ -38,9 +38,9 @@ fn main() {
     match &cli.command {
         Commands::Pyin(pyin) => {
             if !pyin.value.is_empty() {
-                let dk = Dick::find_by_word(pyin.value.as_str());
-                if !dk.is_none() {
-                    println!("汉字转怕拼音 {:?}", dk.unwrap().py);
+                let dk = Dick::find_by_words(pyin.value.as_str(), &"");
+                if !&dk.is_empty() {
+                    println!("汉字转拼音 {:?}", dk);
                 } else {
                     println!("未找到 {} 拼音 ", pyin.value)
                 }
