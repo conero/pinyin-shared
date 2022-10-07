@@ -66,7 +66,11 @@ impl Dick {
         for v in values.chars() {
             // let dk = Dick::find_by_elem(&format!("{}", &v).as_str(), tp);
             //let dk = Dick::find_by_elem(format!("{}", v).as_str(), tp);
-            println!("{}", v);
+            //let dk = Dick::find_by_elem(v.to_string().as_str(), tp);
+            let vs = v.to_string();
+            let dk = Dick::find_by_elem(&vs.as_str(), tp);
+            println!("{}", dk.unwrap());
+            //println!("{}", v);
             // @todo 程序错误
             let dk = Dick::find_by_elem("", tp);
             cols.push(dk);
