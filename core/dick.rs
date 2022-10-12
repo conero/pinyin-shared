@@ -31,7 +31,7 @@ fn find_eq(src: &str, target: &str) -> bool {
 // 字典工具，`find_` 表完全匹配, `search_` 表搜索，可能等于
 impl Dick {
     // 公共类型完全
-    fn find_by_elem<'a>(value: &'a str, tp: &'a DickSearchType) -> Option<&'a Dk> {
+    fn find_by_elem<'a>(value: &str, tp: &'a DickSearchType) -> Option<&'a Dk> {
         for dk in PY_DICKS {
             match tp {
                 DickSearchType::Utf8Code => {
@@ -61,18 +61,10 @@ impl Dick {
     }
 
     // 获取多次请求
-    fn find_by_multi_elem<'a>(values: &'a str, tp: &'a DickSearchType) -> Vec<Option<&Dk>> {
+    fn find_by_multi_elem<'a>(values: &str, tp: &'a DickSearchType) -> Vec<Option<&'a Dk>> {
         let mut cols: Vec<Option<&Dk>> = Vec::new();
         for v in values.chars() {
-            // let dk = Dick::find_by_elem(&format!("{}", &v).as_str(), tp);
-            //let dk = Dick::find_by_elem(format!("{}", v).as_str(), tp);
-            //let dk = Dick::find_by_elem(v.to_string().as_str(), tp);
-            let vs = v.to_string();
-            let dk = Dick::find_by_elem(&vs.as_str(), tp);
-            println!("{}", dk.unwrap());
-            //println!("{}", v);
-            // @todo 程序错误
-            let dk = Dick::find_by_elem("", tp);
+            let dk = Dick::find_by_elem(String::from(v).as_str(), tp);
             cols.push(dk);
         }
         cols
