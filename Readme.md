@@ -8,10 +8,6 @@
 
 
 
-
-
-
-
 ### 编译
 
 构建工具使用 **cargo**
@@ -29,6 +25,12 @@ cargo test
 
 # 编译
 cargo build --release
+
+# 运行指定包
+cargo run --package cli
+
+# 编译
+cargo build --release --package cli
 ```
 
 
@@ -54,6 +56,12 @@ cargo build --release --target=x86_64-unknown-linux-musl
 程序结构参照 [deno](https://github.com/denoland/deno) 项目风格
 
 
+
+主要内容项：
+
+- core               核心代码
+- cli                    二进制命令行
+- shared          dll/so 等文件库
 
 
 
