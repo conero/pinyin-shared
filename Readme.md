@@ -31,6 +31,7 @@ cargo run --package cli
 
 # 编译
 cargo build --release --package cli
+cargo build --release -p cli
 ```
 
 
